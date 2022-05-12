@@ -1,0 +1,65 @@
+body {
+    font-size: 62.5%;
+}
+
+.stopWatch-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.timer {
+    min-width: 100%;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.timer-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 1rem;
+    min-width: 100%;
+}
+
+.stop,
+.start,
+.reset {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+}
+
+@media (max-width: 500px){
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 4rem;
+    }
+
+    .timer-buttons{
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 300px){
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+    }
+}
