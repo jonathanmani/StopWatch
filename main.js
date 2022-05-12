@@ -24,7 +24,22 @@ let stopWatch = {
         this.startStop.onclick = this.stop;
     },
 
-    stop
+    stop : function(){
+        clearInterval(this.timer);
+        this.timer = null;
+        this.startStop.value = 'Start';
+        this.startStop.onclick = this.start;
+    }
+
+    tick : function(){
+        this.now++;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        let remain = this.now;
+        hours = Math.floor(remain / 3600);
+        remain -=
+    }
 };
 
 window.addEventListener('load', stopWatch.initialize)
