@@ -29,7 +29,7 @@ let stopWatch = {
         this.timer = null;
         this.startStop.value = 'Start';
         this.startStop.onclick = this.start;
-    }
+    },
 
     tick : function(){
         this.now++;
@@ -38,7 +38,26 @@ let stopWatch = {
         let seconds = 0;
         let remain = this.now;
         hours = Math.floor(remain / 3600);
-        remain -=
+        remain -= hours * 3600;
+        minutes = Math.floor(remain / 60);
+        remain -= minutes * 60;
+        seconds = remain;
+
+        //update the display
+
+        if (hours < 10){
+            hours = '0' + hours;
+        }
+
+        if (minutes < 10){
+            minutes = '0' + minutes;
+        }
+
+        if (seconds < 10){
+            seconds = '0' + seconds;
+        }
+
+        this.timeDisplay.innerHTML = hours + ":" + minutes + ":" + seconds;
     }
 };
 
