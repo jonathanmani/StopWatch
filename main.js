@@ -58,6 +58,14 @@ let stopWatch = {
         }
 
         this.timeDisplay.innerHTML = hours + ":" + minutes + ":" + seconds;
+    },
+
+    reset : function() {
+        if (this.timer !=null){
+            this.stop();
+        }
+        this.now = -1;
+        this.tick();
     }
 };
 
