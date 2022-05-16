@@ -1,5 +1,6 @@
 body {
     font-size: 62.5%;
+    background-color: grey;
 }
 
 .stopWatch-container{
@@ -15,7 +16,7 @@ h1 {
     font-size: 4rem;
 }
 
-.timer {
+.timerDisplay {
     min-width: 100%;
     text-align: center;
     font-size: 5rem;
@@ -29,7 +30,6 @@ h1 {
     min-width: 100%;
 }
 
-.stop,
 .start,
 .reset {
     padding: 1rem;
@@ -37,6 +37,14 @@ h1 {
     border-radius: 0.5rem;
     font-size: 2rem;
 }
+
+.start:hover,
+.reset:hover{
+    background-color: black;
+    color: white;
+}
+
+
 
 @media (max-width: 500px){
 

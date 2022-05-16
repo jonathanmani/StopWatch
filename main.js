@@ -1,42 +1,44 @@
 let stopWatch = {
-    timeDisplay : null,
-    reset : null,
-    startStop : null,
-    timer : null,
-    now : 0,
+    timeDisplay : null, //html time display
+    resetButton : null, // html reset button
+    startStop : null, //html start-stop button
+    timer : null, //timer object
+    now : 0, //current elapsed time
 
-    initialize : function(){
+    initialize : () => {
         //initialize the buttons
-        this.timeDisplay = document.querySelector('.timerDisplay');
-        this.reset = document.querySelector('.reset');
-        this.startStop = document.querySelector('.start');
+        stopWatch.timeDisplay = document.querySelector('.timerDisplay');
+        stopWatch.resetButton = document.querySelector('.reset');
+        stopWatch.startStop = document.querySelector('.start');
 
 
-        this.reset.onclick = this.reset;
-        this.startStop.onclick = this.startStop;
-        this.reset.disabled = false;
-        this.startStop.disabled = false;
+        stopWatch.resetButton.onclick = stopWatch.reset;
+        stopWatch.startStop.onclick = stopWatch.start;
+        stopWatch.resetButton.disabled = false;
+        stopWatch.startStop.disabled = false;
     },
 
-    start : function(){
-        this.timer = setInterval(this.tick, 1000);
-        this.startStop.value = 'Stop';
-        this.startStop.onclick = this.stop;
+    start : () =>{
+        stopWatch.timer = setInterval(stopWatch.tick, 1000);
+        stopWatch.startStop.value = 'Stop';
+        document.body.style.backgroundColor = 'lightgreen';
+        stopWatch.startStop.onclick = stopWatch.stop;
     },
 
-    stop : function(){
-        clearInterval(this.timer);
-        this.timer = null;
-        this.startStop.value = 'Start';
-        this.startStop.onclick = this.start;
+    stop : () => {
+        clearInterval(stopWatch.timer);
+        stopWatch.timer = null;
+        stopWatch.startStop.value = 'Start';
+        document.body.style.backgroundColor = 'salmon';
+        stopWatch.startStop.onclick = stopWatch.start;
     },
 
-    tick : function(){
-        this.now++;
+    tick : () => {
+        stopWatch.now++;
         let hours = 0;
         let minutes = 0;
         let seconds = 0;
-        let remain = this.now;
+        let remain = stopWatch.now;
         hours = Math.floor(remain / 3600);
         remain -= hours * 3600;
         minutes = Math.floor(remain / 60);
@@ -57,17 +59,18 @@ let stopWatch = {
             seconds = '0' + seconds;
         }
 
-        this.timeDisplay.innerHTML = hours + ":" + minutes + ":" + seconds;
+        stopWatch.timeDisplay.innerHTML = hours + ":" + minutes + ":" + seconds;
     },
 
-    reset : function() {
-        if (this.timer !=null){
-            this.stop();
+    reset : () => {
+        if (stopWatch.timer !=null){
+            stopWatch.stop();
         }
-        this.now = -1;
-        this.tick();
+        document.body.style.backgroundColor = 'grey'
+        stopWatch.now = -1;
+        stopWatch.tick();
     }
 };
 
-window.addEventListener('load', stopWatch.initialize)
+window.addEventListener('load', stopWatch.initialize);
 
